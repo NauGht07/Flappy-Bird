@@ -23,12 +23,14 @@ public class SpawnPillars : MonoBehaviour
         GameObject nPillarTop = Instantiate(pillar, transform);
         nPillarTop.AddComponent(System.Type.GetType("PillarScript"));
         nPillarTop.transform.localPosition = Vector3.zero;
-        nPillarTop.transform.localScale = new Vector3(1, y, 1);
+        nPillarTop.transform.GetChild(0).localScale = new Vector3(2, y, 1);
+        nPillarTop.transform.GetChild(1).localPosition = new Vector3(0, -1 * y, -1);
 
         GameObject nPillarBottom = Instantiate(pillar, bottomSpawnner);
         nPillarBottom.AddComponent(System.Type.GetType("PillarScript"));
         nPillarBottom.transform.localPosition = Vector3.zero;
-        nPillarBottom.transform.localScale = new Vector3(1, -1 * (7 - y), 1);
+        nPillarBottom.transform.GetChild(0).localScale = new Vector3(2, (7 - y), 1);
+        nPillarBottom.transform.GetChild(1).localPosition = new Vector3(0, -1 * (7-y), -1);
 
         
         StartCoroutine(Countdown(1.5f));
